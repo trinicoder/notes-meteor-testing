@@ -26,6 +26,11 @@ if (Meteor.isServer) {
                 Meteor.server.method_handlers['notes.insert']();
             }).toThrow();
         });
+        it('should not remove note if unauthenticated', function () {
+            expect(() => {
+                Meteor.server.method_handlers['notes.remove'].apply({}, [noteOne._id]);
+            }).toThrow();
+        });
 
         it('should remove note', function () {
             Meteor.server.method_handlers['notes.remove'].apply({ userId: noteOne.userId }, [noteOne._id]);
@@ -33,11 +38,7 @@ if (Meteor.isServer) {
             expect(Notes.findOne({ _id: noteOne._id})).toNotExist();
         });
 
-        it('should not remove note if unauthenticated', function () {
-            expect(() => {
-                Meteor.server.method_handlers['notes.remove'].apply({}, [noteOne._id]);
-            }).toThrow();
-        });
+
 
         it('should not remove note if invalid _id', function () {
             expect( () => {
@@ -73,6 +74,30 @@ if (Meteor.isServer) {
                     { title, name:'Varoon'},
                     
                 ]);
+            }).toThrow()
+        });
+        it('should not update note if user was not creator', function () {
+            const title = 'This is an updated title';
+            Meteor.server.method_handlers['notes.update'].apply({
+                userId: 'testid',
+            }, [
+                noteOne._id,
+                { title }
+            ]);
+
+            const note = Notes.findOne(noteOne._id);
+
+            
+            expect(note).toInclude(noteOne);
+        });
+        it ('should not update note if unauthenticated', function () {
+            expect(() => {
+                Meteor.server.method_handlers['notes.update']();
+            }).toThrow();
+        });
+        it('should not update note if invalid _id', function () {
+            expect( () => {
+                Meteor.server.method_handlers['notes.update'].apply({userId:noteOne.userId}, []);
             }).toThrow()
         });
     });
