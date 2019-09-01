@@ -2,6 +2,7 @@ import assert from "assert";
 //import './item.test';
 import '../imports/api/users.test';
 import '../imports/api/notes.test';
+import '../imports/ui/PrivateHeader.test';
 describe("Test App", function () {
   it("package.json has correct name", async function () {
     const { name } = await import("../package.json");

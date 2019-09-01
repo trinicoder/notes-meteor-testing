@@ -29,6 +29,9 @@
     "testModule": "tests/main.js"
   },
   "devDependencies": {
-    "expect": "^1.20.2"
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "expect": "^1.20.2",
+    "react-addons-test-utils": "^15.6.2"
   }
 }
