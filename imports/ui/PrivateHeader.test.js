@@ -5,7 +5,7 @@ import Enzyme from 'enzyme';
 import { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import PrivateHeader from './PrivateHeader';
+import { PrivateHeader } from './PrivateHeader';
     
 Enzyme.configure({ adapter: new Adapter() });
 
