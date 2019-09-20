@@ -5,7 +5,7 @@ import Enzyme from 'enzyme';
 import { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import NoteListHeader from './NoteListHeader';
+import {NoteListHeader} from './NoteListHeader';
 Enzyme.configure({ adapter: new Adapter() });
 if (Meteor.isClient) {
     describe('NoteListHeader', function () {
