@@ -11,6 +11,7 @@ import '../imports/ui/Signup.test';
 import '../imports/ui/NoteListItem.test';
 import '../imports/ui/NoteListHeader.test';
 import '../imports/ui/NoteList.test';
+import '../imports/ui/Editor.test';
 describe("Test App", function () {
   it("package.json has correct name", async function () {
     const { name } = await import("../package.json");
