@@ -5,22 +5,47 @@
     overflow-y: scroll;
     width: 100%;
 }
+
+.item-list__header {
+    display: flex;
+    flex-direction: column;
+    padding: $space;
+    text-align: center;
+}
 //Item
 .item {
-    background: $item-bg;
-    border: 1px solid $item-border;
-    margin-bottom: $space;
+    border-left: $item-border-width solid transparent;
+    cursor: pointer;
     padding: $space;
+    transition: background-color .3s ease, border-left .3s ease;
+}
+.item:hover {
+    background-color: $light-grey;
+    border-left: $item-border-width solid $grey;
 }
 
-.item__message {
-    color: $item-text-color;
-
+.item--selected, .item--selected:hover {
+    background-color: $light-grey;
+    border-left: $item-border-width solid $brand-primary;
 }
 
-.item__status-message {
-    color: $item-text-color;
-    font-style: italic;
-    text-align: centre;
+.item__title{
+    font-weight: normal;
+    font-size: $base-font-size;
+    margin-bottom: .4rem;
+}
+
+.item--selected .item__title {
+    font-weight: bold;
+}
+.item__subtitle{
+    color: $dark-grey;
     margin: 0;
+}
+// Empty Item
+.empty-item {
+    font-style: italic;
+    padding: $space;
+    text-align: center;
+
 }
