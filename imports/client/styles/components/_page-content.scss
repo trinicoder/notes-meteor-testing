@@ -1,21 +1,47 @@
+
 .page-content {
     display: flex;
     height: $page-content-height;
     max-width: $site-max-width;
     margin: 0 auto;
-    padding: $large-space $space;
+    @include desktop(){
+        padding: $large-space $space;
+    }
+    
+
+    @media (min-width: 50rem) {
+        padding: $large-space $space;
+    }
 
 }
 
 .page-content__sidebar {
-    display: flex;
+    //display: flex;
+    display: none;
     width: $page-content-sidebar-width;
     padding-right:  $large-space;
 
+    @include desktop () {
+        display: flex;
+    }
+
 }
 
+@media (max-width: 50rem)  {
+    .page-content__sidebar *{
+        color: red;
+    }
+}
 .page-content__main {
     display: flex;
-    width: $page-content-main-width;
+    width: 100%;
+    
+    
+
+    @include desktop () {
+        width: $page-content-main-width;
+
+    }
+    
 
 }
