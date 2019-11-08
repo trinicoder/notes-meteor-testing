@@ -15,22 +15,29 @@
 
 }
 
-.page-content__sidebar {
-    //display: flex;
-    display: none;
-    width: $page-content-sidebar-width;
-    padding-right:  $large-space;
+.page-content__sidebar {   
+    display:flex;
+    transition: left .3s ease;
+    width: 100vw;
+    position: fixed;
+    top: $header-height;
+    left: -100vw;
+    bottom: 0;
 
     @include desktop () {
         display: flex;
+        width: $page-content-sidebar-width;
+        padding-right:  $large-space;
+        position: static;
     }
-
 }
 
 @media (max-width: 50rem)  {
-    .page-content__sidebar *{
-        color: red;
-    }
+
+}
+
+.is-nav-open .page-content__sidebar {
+    left: 0;
 }
 .page-content__main {
     display: flex;

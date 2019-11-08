@@ -14,7 +14,7 @@ export const NoteListItem = (props) => {
     <div className={className} onClick={() => {
       props.Session.set('selectedNoteId', props.note._id);
     }}>
-      <h5 classNAme="item__title" >{ props.note.title || 'Untitled note' }</h5>
+      <h5 className="item__title" >{ props.note.title || 'Untitled note' }</h5>
       <p className="item__subtitle">{ moment(props.note.updatedAt).format('M/DD/YY') }</p>
     </div>
   );
